@@ -12,21 +12,39 @@ export default () => {
 
 	//3-A) create a default node
 	var node1 = new DefaultNodeModel({
+		id: 'node_1',
 		name: 'Node 1',
-		color: 'rgb(0,192,255)'
+		color: 'rgb(0,192,255)',
+		attributes: [
+			{
+				id: '123',
+				name: '324'
+			}
+		]
 	});
 	node1.setPosition(100, 100);
 	let port1 = node1.addOutPort('Out');
 
 	//3-B) create another default node
-	var node2 = new DefaultNodeModel('Node 2', 'rgb(192,255,0)');
+	var node2 = new DefaultNodeModel({
+		id: 'node_2',
+		name: 'Node 2',
+		color: 'rgb(192,255,0)',
+		attributes: [
+			{
+				id: '123',
+				name: '324'
+			}
+		]
+	});
+
 	let port2 = node2.addInPort('In');
 	node2.setPosition(400, 100);
 
 	// link the ports
 	let link1 = port1.link<DefaultLinkModel>(port2);
 	link1.getOptions().testName = 'Test';
-	link1.addLabel('Hello World!');
+	link1.addLabel('FEED_FROM');
 
 	//4) add the models to the root graph
 	model.addAll(node1, node2, link1);

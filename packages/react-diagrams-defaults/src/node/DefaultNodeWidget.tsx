@@ -4,7 +4,9 @@ import { DiagramEngine } from '@projectstorm/react-diagrams-core';
 import { DefaultNodeModel } from './DefaultNodeModel';
 import { DefaultPortLabel } from '../port/DefaultPortLabelWidget';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { ContextMenu, ContextMenuTrigger } from 'react-contextmenu';
+import { NodeContextMenu } from './NodeContextMenu';
+import { NodeAttributes } from './NodeAttributes';
 
 namespace S {
 	export const Node = styled.div<{ background: string; selected: boolean }>`
@@ -65,17 +67,27 @@ export class DefaultNodeWidget extends React.Component<DefaultNodeProps> {
 	};
 
 	render() {
+		const { node } = this.props;
+
 		return (
 			<S.Node
-				data-default-node-name={this.props.node.getOptions().name}
+				key={node.getOptions().id}
+				// onContextMenu={e => this.handleContextMenu(e)}
+				data-default-node-name={node.getOptions().name}
 				selected={this.props.node.isSelected()}
 				background={this.props.node.getOptions().color}>
 				<S.Title>
-					<S.TitleName>{this.props.node.getOptions().name}</S.TitleName>
+					<S.TitleName>{node.getOptions().name}</S.TitleName>
 				</S.Title>
+				<ContextMenuTrigger id={node.getOptions().id}>
+					<NodeAttributes node={node} />
+				</ContextMenuTrigger>
+				<ContextMenu id={node.getOptions().id}>
+					<NodeContextMenu node={node}></NodeContextMenu>
+				</ContextMenu>
 				<S.Ports>
-					<S.PortsContainer>{_.map(this.props.node.getInPorts(), this.generatePort)}</S.PortsContainer>
-					<S.PortsContainer>{_.map(this.props.node.getOutPorts(), this.generatePort)}</S.PortsContainer>
+					<S.PortsContainer>{_.map(node.getInPorts(), this.generatePort)}</S.PortsContainer>
+					<S.PortsContainer>{_.map(node.getOutPorts(), this.generatePort)}</S.PortsContainer>
 				</S.Ports>
 			</S.Node>
 		);

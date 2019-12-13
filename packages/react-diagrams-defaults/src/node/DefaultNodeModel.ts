@@ -4,8 +4,10 @@ import { DefaultPortModel } from '../port/DefaultPortModel';
 import { BasePositionModelOptions, DeserializeEvent } from '@projectstorm/react-canvas-core';
 
 export interface DefaultNodeModelOptions extends BasePositionModelOptions {
+	id: string;
 	name?: string;
 	color?: string;
+	attributes?: Object[];
 }
 
 export interface DefaultNodeModelGenerics extends NodeModelGenerics {
@@ -16,7 +18,7 @@ export class DefaultNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 	protected portsIn: DefaultPortModel[];
 	protected portsOut: DefaultPortModel[];
 
-	constructor(name: string, color: string);
+	constructor(id: string, name: string, color: string);
 	constructor(options?: DefaultNodeModelOptions);
 	constructor(options: any = {}, color?: string) {
 		if (typeof options === 'string') {
@@ -26,9 +28,11 @@ export class DefaultNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 			};
 		}
 		super({
+			id: '',
 			type: 'default',
 			name: 'Untitled',
 			color: 'rgb(0,192,255)',
+			attributes: [],
 			...options
 		});
 		this.portsOut = [];
