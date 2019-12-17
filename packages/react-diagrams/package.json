@@ -30,7 +30,7 @@
 	"typings": "./dist/@types/index",
 	"dependencies": {
 		"@projectstorm/react-diagrams-core": "^6.0.1-beta.6",
-		"@projectstorm/react-diagrams-defaults": "^6.0.1-beta.6",
+		"@projectstorm/react-diagrams-defaults": "file:../react-diagrams-defaults",
 		"@projectstorm/react-diagrams-routing": "^6.0.1-beta.6"
 	},
 	"gitHead": "bb878657ba0c2f81764f32901fd96158a0f8352e"

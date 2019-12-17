@@ -35,12 +35,11 @@ namespace S {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
 	`;
 
-	export const Button = styled.button`
-		display: flex;
-		flex-direction: row;
-		flex: 1;
+	export const PopoverParent = styled.div`
+		background: gray;
+		color: white;
 		padding: 0.3rem;
-		margin: 0.1rem 1rem;
+		margin: 0.2rem 0.1rem;
 	`;
 
 	export const PortsContainer = styled.div`
@@ -84,7 +83,7 @@ export class DefaultNodeWidget extends React.Component<DefaultNodeProps> {
 				<S.Title>
 					<S.TitleName>{node.getOptions().name}</S.TitleName>
 				</S.Title>
-				<NodeAttributes node={node} parent={<S.Button>Edit</S.Button>} />
+				<NodeAttributes node={node} parent={<S.PopoverParent>Edit</S.PopoverParent>} />
 				<S.Ports>
 					<S.PortsContainer>{_.map(node.getInPorts(), this.generatePort)}</S.PortsContainer>
 					<S.PortsContainer>{_.map(node.getOutPorts(), this.generatePort)}</S.PortsContainer>

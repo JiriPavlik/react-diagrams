@@ -2062,6 +2062,11 @@
     universal-user-agent "^3.0.0"
     url-template "^2.0.8"
 
+"@projectstorm/react-diagrams-defaults@file:packages/react-diagrams-defaults":
+  version "6.0.1-beta.6"
+  dependencies:
+    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
+
 "@reach/router@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"

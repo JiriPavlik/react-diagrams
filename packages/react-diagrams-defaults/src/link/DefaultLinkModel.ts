@@ -18,12 +18,15 @@ export interface DefaultLinkModelListener extends LinkModelListener {
 }
 
 export interface DefaultLinkModelOptions extends BaseModelOptions {
+	extId?: string;
 	width?: number;
 	color?: string;
 	selectedColor?: string;
 	curvyness?: number;
 	type?: string;
 	testName?: string;
+	dgType: string;
+	attributes?: Object[];
 }
 
 export interface DefaultLinkModelGenerics extends LinkModelGenerics {
@@ -32,13 +35,16 @@ export interface DefaultLinkModelGenerics extends LinkModelGenerics {
 }
 
 export class DefaultLinkModel extends LinkModel<DefaultLinkModelGenerics> {
-	constructor(options: DefaultLinkModelOptions = {}) {
+	constructor(options: DefaultLinkModelOptions) {
 		super({
+			extId: '',
 			type: 'default',
 			width: options.width || 3,
 			color: options.color || 'gray',
 			selectedColor: options.selectedColor || 'rgb(0,192,255)',
 			curvyness: 50,
+			dgType: '',
+			attributes: [],
 			...options
 		});
 	}

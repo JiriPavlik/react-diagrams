@@ -13,6 +13,8 @@ namespace S {
 		white-space: nowrap;
 		justify-items: center;
 	`;
+
+	export const PopoverParent = styled.div``;
 }
 
 export interface NodeAttributesProps {
@@ -41,7 +43,7 @@ export const NodeAttributes = (props: NodeAttributesProps) => {
 				style={{ zIndex: 1 }}
 				target={{ parent }}
 				body={<NodeEditDialog node={node} onClose={setOpen} />}>
-				<div onClick={() => setOpen(!open)}>{parent}</div>
+				<S.PopoverParent onClick={() => setOpen(!open)}>{parent}</S.PopoverParent>
 			</ReactPopover>
 		</React.Fragment>
 	);
