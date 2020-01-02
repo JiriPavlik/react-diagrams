@@ -36,7 +36,7 @@ export const NodeAttributes = (props: NodeAttributesProps) => {
 			<ReactPopover
 				isOpen={open}
 				preferPlace={'column'}
-				onOuterAction={() => {}}
+				onOuterAction={() => setOpen(false)}
 				place={'below'}
 				tipSize={0.01}
 				enterExitTransitionDurationMs={0}

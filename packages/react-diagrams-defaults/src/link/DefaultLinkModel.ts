@@ -1,5 +1,4 @@
 import {
-	DiagramEngine,
 	LabelModel,
 	LinkModel,
 	LinkModelGenerics,
@@ -25,7 +24,7 @@ export interface DefaultLinkModelOptions extends BaseModelOptions {
 	curvyness?: number;
 	type?: string;
 	testName?: string;
-	dgType: string;
+	dgType?: string;
 	attributes?: Object[];
 }
 
