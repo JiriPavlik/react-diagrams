@@ -29,7 +29,7 @@
 	"main": "./dist/index.js",
 	"typings": "./dist/@types/index",
 	"dependencies": {
-		"@projectstorm/geometry": "^6.0.1"
+		"@projectstorm/geometry": "6.0.1-beta.6"
 	},
 	"peerDependencies": {
 		"closest": "^0.0.1",
