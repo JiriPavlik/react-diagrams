@@ -48,3 +48,5 @@ export const NodeAttributes = (props: NodeAttributesProps) => {
 		</React.Fragment>
 	);
 };
+
+export default NodeAttributes;

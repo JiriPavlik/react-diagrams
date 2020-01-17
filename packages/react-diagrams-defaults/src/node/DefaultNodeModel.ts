@@ -19,7 +19,7 @@ export class DefaultNodeModel extends NodeModel<DefaultNodeModelGenerics> {
 	protected portsIn: DefaultPortModel[];
 	protected portsOut: DefaultPortModel[];
 
-	constructor(id: string, type: string, name: string, color: string);
+	constructor(id: string, dgType: string, name: string, color: string);
 	constructor(options?: DefaultNodeModelOptions);
 	constructor(options: any = {}, color?: string) {
 		if (typeof options === 'string') {

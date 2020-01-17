@@ -13,7 +13,7 @@ import { CanvasWidget } from '@projectstorm/react-canvas-core';
 import { DemoCanvasWidget } from '../helpers/DemoCanvasWidget';
 
 function createNode(name): any {
-	return new DefaultNodeModel(name, 'rgb(0,192,255)');
+	return new DefaultNodeModel(name, 'place', name, 'rgb(0,192,255)');
 }
 
 let count = 0;
